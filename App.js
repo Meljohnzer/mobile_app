@@ -68,36 +68,36 @@ export default function App() {
             email: null,
             access: null
       })
-            async function fetchdata(){
-              let network =  Network.getNetworkStateAsync()
+            // async function fetchdata(){
+            //   let network =  Network.getNetworkStateAsync()
             
-              if(!(await network).isInternetReachable){
-                  Alert.alert("Network Error","Try Again",
-                  [
-              {
-                text: "Reload",
-                onPress: () => fetchdata()
-                ,
-                style: "yes"
-              },   {
-                    text: "Exit",
-                    onPress: () => {BackHandler.exitApp()
-                        NavigationContainer.navigate('')
-                  }
-                    ,
-                    style: "cancel"
-                  }
-            ]
-                 )
+            //   if(!(await network).isInternetReachable){
+            //       Alert.alert("Network Error","Try Again",
+            //       [
+            //   {
+            //     text: "Reload",
+            //     onPress: () => fetchdata()
+            //     ,
+            //     style: "yes"
+            //   },   {
+            //         text: "Exit",
+            //         onPress: () => {BackHandler.exitApp()
+            //             NavigationContainer.navigate('')
+            //       }
+            //         ,
+            //         style: "cancel"
+            //       }
+            // ]
+            //      )
            
              
                    
-              }else{
-                console.log((await network).isInternetReachable);
-              }
+            //   }else{
+            //     console.log((await network).isInternetReachable);
+            //   }
           
-            }
-            fetchdata()
+            // }
+            // fetchdata()
 
  
 
