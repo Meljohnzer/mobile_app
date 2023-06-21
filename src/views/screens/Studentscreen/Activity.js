@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, Text, View, Dimensions, useWindowDimensions, TouchableOpacity, Keyboard, Alert,Image, RefreshControl} from 'react-native'
+import { SafeAreaView, ScrollView, Text, View, Dimensions,ActivityIndicator, useWindowDimensions, TouchableOpacity, Keyboard, Alert,Image, RefreshControl} from 'react-native'
 import React from 'react'
 import img from '../../../../assets/icon.png'
 import Logo1 from '../../../../assets/bg/profile2.png';
@@ -23,6 +23,7 @@ const Activity = ({navigation}) => {
     wait(2000).then(() => setRefreshing(false));
   }, []);
 
+  const [loading,setLoading] = React.useState(true)
 const [gets,setGet] = React.useState({
       post : []
      })
@@ -33,7 +34,7 @@ const [gets,setGet] = React.useState({
  await axiosRequest.get(`auth/student/activity-log/view/${user.id}`).then((response)=>{
      
 setGet (prevState => ({...prevState, post: response.data}))
-     
+     setLoading(false)
 })
 
 }
@@ -51,7 +52,9 @@ setGet (prevState => ({...prevState, post: response.data}))
             </View>
              </View>
       </View>
-      {gets.post != "" ? <ScrollView
+      {   loading ? ( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size={100} color = "yellow" />
+      </View>) : gets.post != "" ? <ScrollView
         contentContainerStyle={{ 
           justifyContent: 'center',
           width: Dimensions.get('window').width,
@@ -86,7 +89,7 @@ setGet (prevState => ({...prevState, post: response.data}))
       <Text style={{color: 'white', fontWeight: 'bold', fontSize: 18,}}>
          Pending
       </Text>
-      {console.log(label)}
+      {/* {console.log(label)} */}
       </View>
       </TouchableOpacity> }
       
@@ -109,7 +112,7 @@ setGet (prevState => ({...prevState, post: response.data}))
     </ScrollView>:<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',opacity:0.5 }}>
      <Image source={img} style={Universalstyles.Jobimage}/>
       <Text>No Activity!  </Text>
-</View>}
+</View> }
     </SafeAreaView>
   )
 }

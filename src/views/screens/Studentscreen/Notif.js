@@ -1,4 +1,4 @@
-import { View, Text, Image, useWindowDimensions, TouchableOpacity, ScrollView, SafeAreaView, RefreshControl, Dimensions} from 'react-native'
+import { View, Text, Image, useWindowDimensions, ActivityIndicator,TouchableOpacity, ScrollView, SafeAreaView, RefreshControl, Dimensions} from 'react-native'
 import Logo1 from '../../../../assets/bg/profile2.png';
 import React from 'react'
 import Universalstyles from '../../../const/Universalstyle'
@@ -51,9 +51,9 @@ setGet (response.data)
   )},[])
 
   if (gets.posts === undefined) {
-    return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>  No Applicant To display create One Now!  </Text>
-</View>;
+    return  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ActivityIndicator size={100} color = "yellow" />
+  </View>
   }
 
   return (

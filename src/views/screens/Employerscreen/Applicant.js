@@ -92,7 +92,7 @@ const Item = ({item})=>{
   <View style={Universalstyles.jobContent}>
   {item.user__userdetails__profile ? <Image source={{uri : server+item.user__userdetails__profile}} style={Universalstyles.Jobimage}/> :  <Image source={Logo1} style={Universalstyles.Jobimage}/>}
   <View style={Universalstyles.jobContent2}>
-{console.log(item)}
+{console.log(item.user__userdetails__profile)}
   <Text style={{fontSize: 20, borderBottomWidth:1, marginBottom: 5, borderColor: '#cbc8ce'}}><Icon3 name='person' style={{fontSize: 23, color: 'black',}}/><Text style={{color: 'black', }}>  {item.looking_for}</Text></Text>
   
   { item.status == "open"  && <Text style={{opacity:.5}}><Icon4 name='dot-fill' style={{fontSize: 20, color: 'green', alignContent: 'center'}}/>  Open</Text> }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, useWindowDimensions, Dimensions, RefreshControl, Text, SafeAreaView, ScrollView, Image, Alert, TouchableOpacity,Linking} from 'react-native';
+import { View, useWindowDimensions, Dimensions, RefreshControl, ActivityIndicator,Text, SafeAreaView, ScrollView, Image, Alert, TouchableOpacity,Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Universalstyles from '../../../const/Universalstyle';
 import Logo from './../../../../assets/bg/bgimage5.jpg'
@@ -40,7 +40,7 @@ navigation.setOptions({
   })
   
  await axiosRequest.get(`auth/activity/${itemId}/`).then((response)=>{
-     console.log(response.data)
+    //  console.log(response.data)
 setGet (response.data)
      
 })
@@ -50,7 +50,9 @@ setGet (response.data)
   )},[])
  
  if(gets.posts === undefined){
-  return(null)
+  return  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  <ActivityIndicator size={100} color = "yellow" />
+</View>
  }
   
   return (

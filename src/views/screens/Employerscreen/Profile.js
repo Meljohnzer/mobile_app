@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView, SafeAreaView, RefreshControl, Dimensions,Alert} from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView,ActivityIndicator, SafeAreaView, RefreshControl, Dimensions,Alert} from 'react-native'
 import React, {useState} from 'react'
 import Universalstyles from '../../../const/Universalstyle'
 import Logo1 from '../../../../assets/bg/profile2.png';
@@ -26,7 +26,7 @@ const [gets,setGet] = React.useState({
   const [selectedImage, setSelectedImage] = useState(null);
   const { user } = React.useContext(UserContext);
 
-
+  const [loading,setLoading] = useState(true)
   const PickFile = async (file) => {
 
 
@@ -91,6 +91,7 @@ React.useEffect(()=>{
  await axiosRequest.get('auth/profile/'+user.id + "/").then((response)=>response.data).then((data)=>{
   // console.log(data[0].profile[0][21])
 setGet (prevState => ({...prevState, profile: data}))
+setLoading(false)
  })
   
  })
@@ -101,7 +102,9 @@ setGet (prevState => ({...prevState, profile: data}))
   
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-    <ScrollView style={{}}
+    {loading ? <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size={100} color = "yellow" />
+      </View>:<ScrollView style={{}}
      contentContainerStyle={{
       justifyContent: 'center',
       width: Dimensions.get('window').width,
@@ -190,7 +193,7 @@ setGet (prevState => ({...prevState, profile: data}))
     
   </TouchableOpacity>
         </View>
-      {/* {console.log(profiles.profile)} */}
+      {console.log(profiles.profile)}
       <View>
 
       </View>
@@ -256,7 +259,7 @@ setGet (prevState => ({...prevState, profile: data}))
  
     
    
-    </ScrollView>
+    </ScrollView>}
     </SafeAreaView>
   )
 }

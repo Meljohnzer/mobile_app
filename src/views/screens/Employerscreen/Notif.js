@@ -1,4 +1,4 @@
-import { View, Text, Image, useWindowDimensions, TouchableOpacity, ScrollView, SafeAreaView, RefreshControl, Dimensions} from 'react-native'
+import { View, Text, Image, useWindowDimensions,ActivityIndicator, TouchableOpacity, ScrollView, SafeAreaView, RefreshControl, Dimensions} from 'react-native'
 import React from 'react'
 import { axiosRequest,server } from '../../components/api';
 import Universalstyles from '../../../const/Universalstyle';
@@ -51,8 +51,8 @@ React.useEffect(()=>{
 
   if (gets.posts === undefined) {
     return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>  No Applicant To display create One Now!  </Text>
-</View>;
+    <ActivityIndicator size={100} color = "yellow" />
+  </View>
   }
 
   return (

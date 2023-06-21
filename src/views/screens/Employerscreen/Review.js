@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, useWindowDimensions, Dimensions, RefreshControl, Text, SafeAreaView, ScrollView, Image, Alert, TouchableOpacity} from 'react-native';
+import { View, useWindowDimensions, Dimensions, ActivityIndicator,RefreshControl, Text, SafeAreaView, ScrollView, Image, Alert, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Universalstyles from '../../../const/Universalstyle';
 import * as ImagePicker from 'expo-image-picker';
@@ -136,8 +136,8 @@ var Data ={
 
   if (rev.posts === undefined) {
     return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>  No Applicant To display create One Now!  </Text>
-</View>;
+    <ActivityIndicator size={100} color = "yellow" />
+  </View>
   }
   
   return (
@@ -158,14 +158,14 @@ var Data ={
       >
 <View  key = {index} style={{ borderColor: '#e8e8e8'}}>
 <Image
-    source= {itemId.user__userdetails__profile != "" ? {uri:server+itemId.user__userdetails__profile} : Logo}
+    source= {itemId.image != "" ? {uri:server+itemId.image} : Logo}
     style={[{  
      width: 'auto',
      height: 100,
      resizeMode: 'cover', height: height * 0.20, 
      }]} 
      />
-     
+     {console.log(itemId)}
       <Text style={Universalstyles.text2}><Icon4 name='person' style={{fontSize: 25, color: 'black',}}/>  {itemId.looking_for}</Text>
       {/* <Text style={{ paddingHorizontal: 5, paddingBottom: 5, fontSize: 30}}>Company name:</Text>
       <Text style=style={Universalstyles.text}><Icon name='email' style={{fontSize: 20, color: 'black', marginRight: 10}}/> Company email address: </Text> */}

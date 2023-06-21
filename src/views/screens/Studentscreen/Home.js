@@ -330,7 +330,7 @@ const report = () => Alert.alert(
   keyExtractor={(item, index) => index.toString()}
   />):( <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',opacity:0.5 }}>
   <Image source={img} style={Universalstyles.Jobimage}/>
-   <Text>  No Post To display create One Now!  </Text>
+   <Text>No Post To display!</Text>
 </View>)}
   
   </SafeAreaView>

@@ -1,9 +1,9 @@
 import axios from "axios";
 export const axiosRequest = axios.create({
-  baseURL : "http://127.0.0.1:8000/"
+  baseURL : "https://hanapp.pythonanywhere.com/"
 });
 
-export const server = "http://127.0.0.1:8000/files/"
+export const server = "https://hanapp.pythonanywhere.com/backend/static/files/"
 
 
 //change the ipv4 address of your own ip address

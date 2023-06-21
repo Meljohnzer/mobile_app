@@ -94,7 +94,7 @@ navigation.setOptions({
         </View>
        
         <TouchableOpacity onPress={() => {Linking.openURL(server+profile.profile)}}>
-       {profile.apply__user__userdetails__profile != "" ? <Image source={{uri:profile.apply__user__userdetails__profile}} style={{
+       {profile.apply__user__userdetails__profile != "" ? <Image source={{uri:server +profile.apply__user__userdetails__profile}} style={{
      marginTop: 10,
      marginBottom: 20,
      marginLeft: 0,
