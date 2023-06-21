@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, Text, View, Dimensions, useWindowDimensions, TouchableOpacity, Keyboard, Alert,Image, RefreshControl} from 'react-native'
+import { SafeAreaView, ScrollView, Text, View, ActivityIndicator,Dimensions, useWindowDimensions, TouchableOpacity, Keyboard, Alert,Image, RefreshControl} from 'react-native'
 import React from 'react'
 import img from '../../../../assets/icon.png'
 import Logo from '../../../../assets/bg/Picture2.png';
@@ -27,6 +27,7 @@ const Bookmarks = ({navigation}) => {
     wait(2000).then(() => setRefreshing(false));
   }, []);
   
+  const [loading,setLoading] = React.useState(true)
    const [gets,setGet] = React.useState({
       post : []
      })
@@ -38,7 +39,7 @@ React.useEffect(()=>{
  await axiosRequest.get('auth/student/bookmark/view/'+user.id).then((response)=>{
      
 setGet (prevState => ({...prevState, post: response.data}))
-     
+     setLoading(false)
 })
 
 
@@ -59,7 +60,9 @@ setGet (prevState => ({...prevState, post: response.data}))
             </View>
              </View>
       </View> 
-      {gets.post != "" ? <ScrollView
+      {loading ? <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ActivityIndicator size={100} color = "yellow" />
+  </View> : gets.post != "" ? <ScrollView
         contentContainerStyle={{ 
           justifyContent: 'center',
           width: Dimensions.get('window').width,
