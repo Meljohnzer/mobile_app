@@ -98,7 +98,17 @@ React.useEffect(()=>{
 setGet (prevState => ({...prevState, post: response.data}))
 setLoading(false);
      
-})
+}).catch(() =>{Alert.alert(
+  "No Network!", 
+  "Check Your connection",
+  [
+    {
+      text: "Exit",
+      onPress: () => navigation.navigate(''),
+      style: "yes"
+    },
+  ]
+);})
 
 
 

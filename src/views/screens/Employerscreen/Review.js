@@ -186,7 +186,7 @@ var Data ={
       </View>
       <View style={{ alignItems: 'center', flexDirection:'row', justifyContent: 'flex-start'}}>
       <Text style={{paddingHorizontal: 25, fontSize: 15, opacity:.5}}>{itemId.start_date}</Text>
-      <Text style={{paddingHorizontal: 100,fontSize: 15, opacity:.5}}>{itemId.enddate}</Text>
+      <Text style={{paddingHorizontal: 100,fontSize: 15, opacity:.5}}>{itemId.end_date}</Text>
       </View>
       <Text style={Universalstyles.text}></Text>
      </View>
