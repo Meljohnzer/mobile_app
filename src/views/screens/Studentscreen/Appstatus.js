@@ -143,9 +143,9 @@ setGet (response.data)
       {/* {console.log(label.Astatus)} */}
   
   {label.apply__applicant__schedule__id && <View style={[Universalstyles.jobstatus, {backgroundColor:'#C7F9B5'}]}>
-  <Text style ={[Universalstyles.text,{width:'100%'}]}><Icon name='web' style={{fontSize: 20, color: 'blue',}}/> {label.interviewType}</Text>
-  {label.applicant.method == "Online" && <Text onPress={()=>{Linking.openURL(label.applicant.method)}} style ={[Universalstyles.text,{width:'100%'}]}><Icon name='link' style={{fontSize: 20, color: 'blue',}}/> {label.apply__applicant__schedule__method}</Text>}
-  { label.applicant.method == "Face to face" && <Text style ={[Universalstyles.text,{width:'100%'}]}><Icon name='map-marker' style={{fontSize: 20, color: 'red',}}/> {label.apply__applicant__schedule__interview_type}</Text>}
+  <Text style ={[Universalstyles.text,{width:'100%'}]}><Icon name='web' style={{fontSize: 20, color: 'blue',}}/> {label.apply__applicant__schedule__interview_type}</Text>
+  {label.apply__applicant__schedule__interview_type == "Online" && <Text onPress={()=>{Linking.openURL(label.apply__applicant__schedule__method)}} style ={[Universalstyles.text,{width:'100%'}]}><Icon name='link' style={{fontSize: 20, color: 'blue',}}/> {label.apply__applicant__schedule__method}</Text>}
+  { label.apply__applicant__schedule__interview_type == "Face to face" && <Text style ={[Universalstyles.text,{width:'100%'}]}><Icon name='map-marker' style={{fontSize: 20, color: 'red',}}/> {label.apply__applicant__schedule__method}</Text>}
     <Text style ={[Universalstyles.text,{width:'100%'}]} ><Icon name='calendar-month' style={{fontSize: 20, color: 'green', marginRight: 10}}/> {label.apply__applicant__schedule__start_date} -- <Icon name='calendar-month' style={{fontSize: 20, color: 'red', marginRight: 10}}/> {label.apply__applicant__schedule__end_date} </Text> 
     <Text style ={[Universalstyles.text,{width:'100%'}]}><Icon name='clock-outline' style={{fontSize: 20, color: 'green', marginRight: 10}}/> {label.apply__applicant__schedule__start_time} -- <Icon name='clock-outline' style={{fontSize: 20, color: 'red', marginRight: 10}}/>{label.apply__applicant__schedule__end_time}</Text> 
         
